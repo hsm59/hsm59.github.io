@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="552px" height="552px" viewBox="0 0 552 552" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(20.000000, 20.000000)">
+            <polygon id="Shape" fill="#BCBBBB" fill-rule="nonzero" points="368.847058 366.789667 368.847058 289.51391 400.849038 289.51391 400.849038 392.437224 112 392.437224 112 289.51391 144.00198 289.51391 144.00198 366.789667"></polygon>
+            <path d="M181.517838,280.20056 L338.618466,306.514287 L345.268228,281.199815 L188.1676,254.886088 L181.517838,280.20056 Z M202.298344,220.245231 L347.761889,274.538112 L361.061413,251.222151 L215.597868,196.596185 L202.298344,220.245231 Z M242.612527,162.954584 L366.048734,245.226618 L386.41363,225.574594 L262.977423,143.30256 L242.612527,162.954584 Z M322.409671,102 L296.641843,117.321917 L392.232172,220.578316 L418,205.256399 L322.409671,102 Z M178.192957,338.823547 L338.618466,338.823547 L338.618466,313.17599 L178.192957,313.17599 L178.192957,338.823547 Z" id="Shape" fill="#979797" fill-rule="nonzero"></path>
+            <circle id="Oval-2" stroke="#BCBBBB" stroke-width="40" cx="256" cy="256" r="256"></circle>
+        </g>
+    </g>
+</svg>
