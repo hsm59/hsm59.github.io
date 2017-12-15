@@ -17,21 +17,11 @@
     </mat-card-content>
     <div class="icons-div">
       <mat-card-actions>
-        <a href="https://github.com/hsm59" target="_blank">
-          <img class="img-properties" src="./assets/github-logo.svg" hspace="10"/>
-        </a>
-        <a href="https://stackoverflow.com/users/1992823/hsm59" target="_blank">
-          <img class="img-properties" src="./assets/so-logo.svg" hspace="10"/>
-        </a>
-        <a href="https://www.linkedin.com/in/mukadam59/" target="_blank">
-          <img class="img-properties" src="./assets/linkedin-logo.svg" hspace="10"/>
-        </a>
-        <a href="https://medium.com/@mukadam59" target="_blank">
-          <img class="img-properties" src="./assets/medium-logo.svg" hspace="10"/>
-        </a>
-        <a href="https://twitter.com/HSM59" target="_blank">
-          <img class="img-properties" src="./assets/twitter-logo-button.svg" hspace="10"/>
-        </a>
+          <img class="img-properties" src="./assets/github-logo.svg" hspace="5" (click)="openGithubProfile()"/>
+          <img class="img-properties" src="./assets/so-logo.svg" hspace="5" (click)="openSOProfile()"/>
+          <img class="img-properties" src="./assets/linkedin-logo.svg" hspace="5" (click)="openLinkedInProfile()"/>
+          <img class="img-properties" src="./assets/medium-logo.svg" hspace="5" (click)="openMediumBlog()"/>
+          <img class="img-properties" src="./assets/twitter-logo-button.svg" hspace="5" (click)="openTwitterProfile()"/>
       </mat-card-actions>
     </div>
     <mat-card-footer>
