@@ -17,15 +17,14 @@
     </mat-card-content>
     <div class="icons-div">
       <mat-card-actions>
-          <img class="img-properties" src="./assets/github-logo.svg" hspace="5" (click)="openGithubProfile()"/>
-          <img class="img-properties" src="./assets/so-logo.svg" hspace="5" (click)="openSOProfile()"/>
-          <img class="img-properties" src="./assets/linkedin-logo.svg" hspace="5" (click)="openLinkedInProfile()"/>
-          <img class="img-properties" src="./assets/medium-logo.svg" hspace="5" (click)="openMediumBlog()"/>
-          <img class="img-properties" src="./assets/twitter-logo-button.svg" hspace="5" (click)="openTwitterProfile()"/>
+          <img matTooltip="Github Profile" class="img-properties" src="./assets/github-logo.svg" hspace="5" (click)="openGithubProfile()"/>
+          <img matTooltip="StackOverflow Profile" class="img-properties" src="./assets/so-logo.svg" hspace="5" (click)="openSOProfile()"/>
+          <img matTooltip="LinkedIn Profile" class="img-properties" src="./assets/linkedin-logo.svg" hspace="5" (click)="openLinkedInProfile()"/>
+          <img matTooltip="Medium Blog" class="img-properties" src="./assets/medium-logo.svg" hspace="5" (click)="openMediumBlog()"/>
+          <img matTooltip="Twitter Profile" class="img-properties" src="./assets/twitter-logo-button.svg" hspace="5" (click)="openTwitterProfile()"/>
       </mat-card-actions>
     </div>
     <mat-card-footer>
-
     </mat-card-footer>
   </mat-card>
 </div>
