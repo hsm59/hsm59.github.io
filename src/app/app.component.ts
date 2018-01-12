@@ -26,6 +26,6 @@ export class AppComponent {
     window.open('https://twitter.com/HSM59', '_blank');
   }
   sendMail() {
-    window.location.href = 'mailto:andreeddev@gmail.com';
+    window.location.href = 'mailto:androeeddev@gmail.com';
   }
 }
