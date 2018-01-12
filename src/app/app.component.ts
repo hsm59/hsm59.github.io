@@ -25,4 +25,7 @@ export class AppComponent {
   openTwitterProfile() {
     window.open('https://twitter.com/HSM59', '_blank');
   }
+  sendMail() {
+    window.location.href = 'mailto:andreeddev@gmail.com';
+  }
 }

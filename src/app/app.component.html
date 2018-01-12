@@ -1,27 +1,34 @@
 <div class="main-div">
   <mat-card class="z-depth center" flex="50">
-    <mat-card-header>
-      <img mat-card-avatar class="example-header-image" src="./favicon.png">
-      <mat-card-title>Hussain Mukadam</mat-card-title>
-      <mat-card-subtitle>Software Engineer and Tech Enthusiast</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="./assets/madmeetup-talk.jpg" alt="" (click)="openLink()">
+    <div>
+      <mat-card-header>
+        <img mat-card-avatar class="example-header-image" src="./favicon.png">
+        <mat-card-title>Hussain Mukadam</mat-card-title>
+        <mat-card-subtitle>Software Engineer and Tech Enthusiast</mat-card-subtitle>
+      </mat-card-header>
+
+      <img mat-card-image src="./assets/madmeetup-talk.jpg" alt="" (click)="openLink()">
+      <img matTooltip="Get in touch!" class="mail-properties" src="./assets/mail-icon.svg" (click)="sendMail()"/>
+    </div>
     <mat-card-content>
       <p>About:</p>
       <p class="paragraph">
-        Learning new technologies and implementing them in the most efficient way is my goal, I have a keen interest in Android Development and Machine Learning.
+        Learning new technologies and implementing them in the most efficient way is my goal, I have a keen interest in
+        Android Development and Machine Learning.
       </p>
       <p class="paragraph">
-        You can learn more about me and my work by checking out the links below, and if you are wondering what's that image above, it's from the Kotlin Talk that I gave at the Mumbai Android Developer's Meetup, click on the image to get the slides! :)
+        You can learn more about me and my work by checking out the links below, and if you are wondering what's that
+        image above, it's from the Kotlin Talk that I gave at the Mumbai Android Developer's Meetup, click on the image
+        to get the slides! :)
       </p>
     </mat-card-content>
     <div class="icons-div">
       <mat-card-actions>
-          <img matTooltip="Github Profile" class="img-properties" src="./assets/github-logo.svg" hspace="5" (click)="openGithubProfile()"/>
-          <img matTooltip="StackOverflow Profile" class="img-properties" src="./assets/so-logo.svg" hspace="5" (click)="openSOProfile()"/>
-          <img matTooltip="LinkedIn Profile" class="img-properties" src="./assets/linkedin-logo.svg" hspace="5" (click)="openLinkedInProfile()"/>
-          <img matTooltip="Medium Blog" class="img-properties" src="./assets/medium-logo.svg" hspace="5" (click)="openMediumBlog()"/>
-          <img matTooltip="Twitter Profile" class="img-properties" src="./assets/twitter-logo-button.svg" hspace="5" (click)="openTwitterProfile()"/>
+        <img matTooltip="Github Profile" class="img-properties" src="./assets/github-logo.svg" hspace="5" (click)="openGithubProfile()"/>
+        <img matTooltip="StackOverflow Profile" class="img-properties" src="./assets/so-logo.svg" hspace="5" (click)="openSOProfile()"/>
+        <img matTooltip="LinkedIn Profile" class="img-properties" src="./assets/linkedin-logo.svg" hspace="5" (click)="openLinkedInProfile()"/>
+        <img matTooltip="Medium Blog" class="img-properties" src="./assets/medium-logo.svg" hspace="5" (click)="openMediumBlog()"/>
+        <img matTooltip="Twitter Profile" class="img-properties" src="./assets/twitter-logo-button.svg" hspace="5" (click)="openTwitterProfile()"/>
       </mat-card-actions>
     </div>
     <mat-card-footer>

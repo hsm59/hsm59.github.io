@@ -29,6 +29,18 @@
   height: 50px;
 }
 
+.mail-properties {
+  width: 60px;
+  height: 60px;
+  right: 30px;
+  margin-top: -52px;
+  position: absolute;
+}
+
+.fill-space {
+  flex: 1 1 auto;
+}
+
 .icons-div {
   justify-content: center;
   display: flex;
