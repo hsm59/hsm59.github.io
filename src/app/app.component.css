@@ -42,10 +42,19 @@
   width: 60px;
   height: 60px;
   right: 30px;
-  margin-top: -63px;
+  margin-top: -50px;
   position: absolute;
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .mail-properties {
+    width: 60px;
+    height: 60px;
+    right: 30px;
+    margin-top: -63px;
+    position: absolute;
+  }
+}
 .fill-space {
   flex: 1 1 auto;
 }
@@ -60,11 +69,19 @@
   height: 40px;
 }
 
-.about-start {
-  margin-top: -18px;
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .about-start {
+    margin-top: -18px;
+  }
 }
 
 .paragraph {
   color: #686868;
   line-height: 1.5;
+}
+
+.circle-shadow {
+  background-color: #BCBBBB;
+  border-radius: 100%;
+  box-shadow: 0 8px 8px rgba(10, 16, 20, 0.55), 0 0 52px rgba(10, 16, 20, 0.55) !important;
 }
