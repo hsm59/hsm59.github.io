@@ -6,6 +6,7 @@
 }
 
 .main-div{
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,11 +30,19 @@
   height: 50px;
 }
 
+.outer-block {
+  display: block;
+}
+
+.inner-block{
+  display: inline-block;
+}
+
 .mail-properties {
   width: 60px;
   height: 60px;
   right: 30px;
-  margin-top: -52px;
+  margin-top: -63px;
   position: absolute;
 }
 
@@ -49,6 +58,10 @@
 .example-header-image {
   width: 40px;
   height: 40px;
+}
+
+.about-start {
+  margin-top: -18px;
 }
 
 .paragraph {
