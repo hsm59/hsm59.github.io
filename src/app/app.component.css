@@ -1,12 +1,10 @@
 
-
-.center{
+.center {
   width: 75%;
   margin: 10px auto;
 }
 
-.main-div{
-  height: auto;
+.main-div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,14 +13,14 @@
 .z-depth {
   width: 400px;
   box-shadow: 0 8px 8px rgba(10, 16, 20, 0.55), 0 0 52px rgba(10, 16, 20, 0.55) !important;
-  transform: translate3d(0,0,0);
-  transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+  transform: translate3d(0, 0, 0);
+  transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
 }
 
 .z-depth:hover {
-  box-shadow: 0 8px 8px rgba(10,16,20,.24), 0 0 8px rgba(10,16,20,.12) !important;
-  transform: translate3d(0,0,0);
-  transition: background .4s cubic-bezier(.25,.8,.25,1),box-shadow 280ms cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 8px 8px rgba(10, 16, 20, .24), 0 0 8px rgba(10, 16, 20, .12) !important;
+  transform: translate3d(0, 0, 0);
+  transition: background .4s cubic-bezier(.25, .8, .25, 1), box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
 }
 
 .img-properties {
@@ -31,11 +29,11 @@
 }
 
 .outer-block {
-  display: block;
+
 }
 
-.inner-block{
-  display: inline-block;
+.inner-block {
+
 }
 
 .mail-properties {
@@ -46,15 +44,6 @@
   position: absolute;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  .mail-properties {
-    width: 60px;
-    height: 60px;
-    right: 30px;
-    margin-top: -63px;
-    position: absolute;
-  }
-}
 .fill-space {
   flex: 1 1 auto;
 }
@@ -69,10 +58,8 @@
   height: 40px;
 }
 
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-  .about-start {
-    margin-top: -18px;
-  }
+.about-start {
+
 }
 
 .paragraph {
