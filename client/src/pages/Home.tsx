@@ -1,4 +1,5 @@
 import { Link } from "wouter";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Smartphone, Zap, Code, Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -21,14 +22,7 @@ export default function Home() {
             <div className="h-10 w-10 rounded-xl bg-linear-to-br from-primary to-purple-600 flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-all duration-300">
               <span className="font-mono text-white font-bold text-lg">HM</span>
             </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-xl font-logo font-bold tracking-tight">
-                husain<span className="text-muted-foreground">mukadam</span>
-              </span>
-              <span className="text-xs font-mono text-primary tracking-widest font-bold uppercase">
-                .dev<span className="animate-blink">_</span>
-              </span>
-            </div>
+            <LogoTyper />
           </Link>
           
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
@@ -206,6 +200,78 @@ export default function Home() {
           </div>
         </div>
       </section>
+    </div>
+  );
+}
+
+function LogoTyper() {
+  const [displayedText, setDisplayedText] = useState({
+    line1: "",
+    line2: "",
+    completed: false
+  });
+
+  useEffect(() => {
+    const text1 = "husainmukadam";
+    const text2 = ".dev";
+    let currentTick = 0;
+    const totalLength = text1.length + text2.length;
+
+    const interval = setInterval(() => {
+      currentTick++;
+      
+      if (currentTick <= text1.length) {
+        setDisplayedText(prev => ({ ...prev, line1: text1.slice(0, currentTick) }));
+      } else {
+        setDisplayedText(prev => ({ 
+          ...prev, 
+          line1: text1,
+          line2: text2.slice(0, currentTick - text1.length) 
+        }));
+      }
+
+      if (currentTick >= totalLength) {
+        clearInterval(interval);
+        setDisplayedText(prev => ({ ...prev, completed: true }));
+      }
+    }, 100); // 100ms per character
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Helper to render line 1 with different styles for first/last name
+  const renderLine1 = () => {
+    const text = displayedText.line1;
+    const firstName = "husain";
+    
+    if (text.length <= firstName.length) {
+      return <span>{text}</span>;
+    }
+    
+    return (
+      <>
+        <span>{firstName}</span>
+        <span className="text-muted-foreground">{text.slice(firstName.length)}</span>
+      </>
+    );
+  };
+
+  return (
+    <div className="flex flex-col leading-none justify-center">
+      <span className="text-xl font-logo font-bold tracking-tight flex items-center min-h-[24px]">
+        {renderLine1()}
+        {/* Cursor for line 1: only show if we are typing line 1 and not done */}
+        {!displayedText.line2 && !displayedText.completed && (
+             <span className="animate-blink ml-[1px] -mb-1 text-primary">_</span>
+        )}
+      </span>
+      <span className="text-xs font-mono text-primary tracking-widest font-bold uppercase flex items-center min-h-[16px]">
+        {displayedText.line2}
+        {/* Cursor for line 2: show if we are typing line 2 OR if completed */}
+        {(displayedText.line2 || displayedText.completed) && (
+             <span className="animate-blink ml-[1px]">_</span>
+        )}
+      </span>
     </div>
   );
 }
