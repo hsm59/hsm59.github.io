@@ -18,7 +18,102 @@ import blog1 from "@assets/generated_images/abstract_code_visualization_in_dark_
 import blog2 from "@assets/generated_images/geometric_mobile_architecture_diagram_in_dark_mode.png";
 import blog3 from "@assets/generated_images/futuristic_data_analytics_dashboard_on_dark_glass.png";
 
+const MEDIUM_USERNAME = "@husainmukadam"; // Replace with your actual Medium username
+
+interface BlogPost {
+  title: string;
+  pubDate: string;
+  link: string;
+  guid: string;
+  author: string;
+  thumbnail: string;
+  description: string;
+  content: string;
+}
+
 export default function Home() {
+  const [blogPosts, setBlogPosts] = useState<any[]>([]);
+  const [loadingBlogs, setLoadingBlogs] = useState(true);
+
+  useEffect(() => {
+    const fetchMediumBlogs = async () => {
+      try {
+        // Using rss2json to convert Medium RSS feed to JSON
+        const response = await fetch(
+          `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/${MEDIUM_USERNAME}`
+        );
+        const data = await response.json();
+
+        if (data.status === "ok" && data.items.length > 0) {
+          // Transform the data to match our needed format
+          // Medium RSS content often has the image in the description/content if thumbnail is missing
+          const posts = data.items.slice(0, 3).map((item: any) => {
+            // Extract first image from content if thumbnail is missing or empty
+            let image = item.thumbnail;
+            if (!image) {
+              const imgMatch = item.description.match(/<img[^>]+src="([^">]+)"/);
+              if (imgMatch) {
+                image = imgMatch[1];
+              }
+            }
+            
+            // Fallback images if no image found in feed
+            if (!image) {
+               const randomBg = [blog1, blog2, blog3];
+               image = randomBg[Math.floor(Math.random() * randomBg.length)];
+            }
+
+            return {
+              title: item.title,
+              excerpt: item.description.replace(/<[^>]+>/g, '').slice(0, 120) + "...", // Strip HTML tags
+              date: new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+              readTime: "5 min read", // Medium feed doesn't provide read time, using placeholder
+              link: item.link,
+              image: image
+            };
+          });
+          setBlogPosts(posts);
+        }
+      } catch (error) {
+        console.error("Failed to fetch Medium blogs:", error);
+      } finally {
+        setLoadingBlogs(false);
+      }
+    };
+
+    fetchMediumBlogs();
+  }, []);
+
+  // Default mock posts if fetch fails or returns no data
+  const defaultPosts = [
+    {
+      title: "Optimizing React Native Performance for 60fps",
+      excerpt: "Deep dive into rendering optimizations, memoization, and native driver animations for buttery smooth apps.",
+      date: "Oct 12, 2024",
+      readTime: "5 min read",
+      link: "#",
+      image: blog1
+    },
+    {
+      title: "The Future of Mobile Architecture",
+      excerpt: "Exploring clean architecture patterns, modularization, and how to scale your codebase effectively.",
+      date: "Sep 28, 2024",
+      readTime: "8 min read",
+      link: "#",
+      image: blog2
+    },
+    {
+      title: "Designing for Dark Mode First",
+      excerpt: "Why starting with dark mode leads to better contrast, accessibility, and overall visual hierarchy.",
+      date: "Sep 15, 2024",
+      readTime: "4 min read",
+      link: "#",
+      image: blog3
+    }
+  ];
+
+  const displayPosts = blogPosts.length > 0 ? blogPosts : defaultPosts;
+
   return (
     <div className="min-h-screen bg-background text-foreground font-sans overflow-x-hidden selection:bg-primary/30">
       {/* Navigation */}
@@ -171,37 +266,24 @@ export default function Home() {
               <p className="text-muted-foreground">Thoughts on mobile development, performance, and design.</p>
             </motion.div>
             <Button variant="link" className="text-primary p-0 h-auto">
-              <a href="https://medium.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
+              <a href={`https://medium.com/${MEDIUM_USERNAME}`} target="_blank" rel="noopener noreferrer" className="flex items-center">
                 Read on Medium <ExternalLink className="ml-2 h-4 w-4" />
               </a>
             </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <BlogCard 
-              image={blog1}
-              title="Optimizing React Native Performance for 60fps"
-              excerpt="Deep dive into rendering optimizations, memoization, and native driver animations for buttery smooth apps."
-              date="Oct 12, 2024"
-              readTime="5 min read"
-              link="#"
-            />
-            <BlogCard 
-              image={blog2}
-              title="The Future of Mobile Architecture"
-              excerpt="Exploring clean architecture patterns, modularization, and how to scale your codebase effectively."
-              date="Sep 28, 2024"
-              readTime="8 min read"
-              link="#"
-            />
-            <BlogCard 
-              image={blog3}
-              title="Designing for Dark Mode First"
-              excerpt="Why starting with dark mode leads to better contrast, accessibility, and overall visual hierarchy."
-              date="Sep 15, 2024"
-              readTime="4 min read"
-              link="#"
-            />
+            {displayPosts.map((post, index) => (
+              <BlogCard 
+                key={index}
+                image={post.image}
+                title={post.title}
+                excerpt={post.excerpt}
+                date={post.date}
+                readTime={post.readTime}
+                link={post.link}
+              />
+            ))}
           </div>
         </div>
       </section>
