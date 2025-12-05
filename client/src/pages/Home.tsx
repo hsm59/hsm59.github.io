@@ -17,8 +17,18 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-white/5 bg-background/80 backdrop-blur-lg">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="text-xl font-display font-bold tracking-tighter hover:opacity-80 transition-opacity cursor-pointer">
-            husain mukadam <span className="text-primary">. dev</span>
+          <Link href="/" className="group flex items-center gap-2 hover:opacity-90 transition-opacity cursor-pointer">
+            <div className="h-10 w-10 rounded-xl bg-linear-to-br from-primary to-purple-600 flex items-center justify-center shadow-lg shadow-primary/20 group-hover:shadow-primary/40 transition-all duration-300">
+              <span className="font-mono text-white font-bold text-lg">HM</span>
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="text-xl font-logo font-bold tracking-tight">
+                husain<span className="text-muted-foreground">mukadam</span>
+              </span>
+              <span className="text-xs font-mono text-primary tracking-widest font-bold uppercase">
+                .dev_
+              </span>
+            </div>
           </Link>
           
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
