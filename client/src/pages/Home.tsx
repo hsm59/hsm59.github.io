@@ -26,7 +26,7 @@ export default function Home() {
                 husain<span className="text-muted-foreground">mukadam</span>
               </span>
               <span className="text-xs font-mono text-primary tracking-widest font-bold uppercase">
-                .dev_
+                .dev<span className="animate-blink">_</span>
               </span>
             </div>
           </Link>
