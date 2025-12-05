@@ -1,16 +1,22 @@
 import { Link } from "wouter";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Smartphone, Zap, Code, Github, Linkedin, Mail, ChevronDown } from "lucide-react";
+import { ArrowRight, Smartphone, Zap, Code, Github, Linkedin, Mail, ChevronDown, ExternalLink, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
 
 import heroBg from "@assets/generated_images/sleek_dark_abstract_technology_background_with_subtle_blue_neon_lines.png";
 import fintechMockup from "@assets/generated_images/modern_fintech_app_interface_mockup_floating_in_dark_space.png";
 import fitnessMockup from "@assets/generated_images/minimalist_fitness_app_interface_mockup_floating_in_dark_space.png";
 import socialMockup from "@assets/generated_images/vibrant_social_app_interface_mockup_floating_in_dark_space.png";
+
+// Placeholder imports for blog images - will be replaced by generated images
+import blog1 from "@assets/generated_images/abstract_code_visualization_in_dark_mode_with_neon_accents.png";
+import blog2 from "@assets/generated_images/geometric_mobile_architecture_diagram_in_dark_mode.png";
+import blog3 from "@assets/generated_images/futuristic_data_analytics_dashboard_on_dark_glass.png";
 
 export default function Home() {
   return (
@@ -28,6 +34,7 @@ export default function Home() {
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#services" className="hover:text-primary transition-colors">Services</a>
             <a href="#work" className="hover:text-primary transition-colors">Work</a>
+            <a href="#blog" className="hover:text-primary transition-colors">Blog</a>
             <a href="#about" className="hover:text-primary transition-colors">About</a>
             <Button variant="outline" className="border-primary/20 hover:bg-primary/10 hover:text-primary" asChild>
               <a href="#contact">Let's Talk</a>
@@ -146,6 +153,54 @@ export default function Home() {
               image={socialMockup}
               title="Connect"
               category="Social Network"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section id="blog" className="py-24 bg-background">
+        <div className="container mx-auto px-6">
+          <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">Latest Insights</h2>
+              <p className="text-muted-foreground">Thoughts on mobile development, performance, and design.</p>
+            </motion.div>
+            <Button variant="link" className="text-primary p-0 h-auto">
+              <a href="https://medium.com" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                Read on Medium <ExternalLink className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <BlogCard 
+              image={blog1}
+              title="Optimizing React Native Performance for 60fps"
+              excerpt="Deep dive into rendering optimizations, memoization, and native driver animations for buttery smooth apps."
+              date="Oct 12, 2024"
+              readTime="5 min read"
+              link="#"
+            />
+            <BlogCard 
+              image={blog2}
+              title="The Future of Mobile Architecture"
+              excerpt="Exploring clean architecture patterns, modularization, and how to scale your codebase effectively."
+              date="Sep 28, 2024"
+              readTime="8 min read"
+              link="#"
+            />
+            <BlogCard 
+              image={blog3}
+              title="Designing for Dark Mode First"
+              excerpt="Why starting with dark mode leads to better contrast, accessibility, and overall visual hierarchy."
+              date="Sep 15, 2024"
+              readTime="4 min read"
+              link="#"
             />
           </div>
         </div>
@@ -311,6 +366,40 @@ function ProjectCard({ image, title, category }: { image: string, title: string,
       </div>
       <h3 className="text-lg font-bold font-display">{title}</h3>
       <p className="text-sm text-muted-foreground">{category}</p>
+    </motion.div>
+  );
+}
+
+function BlogCard({ image, title, excerpt, date, readTime, link }: { image: string, title: string, excerpt: string, date: string, readTime: string, link: string }) {
+  return (
+    <motion.div 
+      whileHover={{ y: -5 }}
+      className="group cursor-pointer flex flex-col h-full"
+    >
+      <a href={link} target="_blank" rel="noopener noreferrer" className="block h-full">
+        <div className="relative aspect-video rounded-2xl overflow-hidden mb-5 border border-white/5 bg-card">
+          <img 
+            src={image} 
+            alt={title} 
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+          <div className="absolute top-4 right-4">
+            <Badge variant="secondary" className="bg-black/50 backdrop-blur-md border-white/10 text-white hover:bg-black/70">
+              {readTime}
+            </Badge>
+          </div>
+        </div>
+        <div className="flex flex-col flex-grow">
+          <div className="text-xs font-medium text-primary mb-2 uppercase tracking-wider">{date}</div>
+          <h3 className="text-xl font-bold font-display mb-3 group-hover:text-primary transition-colors line-clamp-2">{title}</h3>
+          <p className="text-muted-foreground leading-relaxed text-sm line-clamp-3 mb-4 flex-grow">
+            {excerpt}
+          </p>
+          <div className="flex items-center text-sm font-medium text-foreground group-hover:translate-x-1 transition-transform duration-300 mt-auto">
+            Read Article <ArrowRight className="ml-2 h-4 w-4" />
+          </div>
+        </div>
+      </a>
     </motion.div>
   );
 }
