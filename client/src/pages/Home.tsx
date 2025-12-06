@@ -18,7 +18,7 @@ import blog1 from "@assets/generated_images/abstract_code_visualization_in_dark_
 import blog2 from "@assets/generated_images/geometric_mobile_architecture_diagram_in_dark_mode.png";
 import blog3 from "@assets/generated_images/futuristic_data_analytics_dashboard_on_dark_glass.png";
 
-const MEDIUM_USERNAME = "@husainmukadam"; // Replace with your actual Medium username
+const MEDIUM_USERNAME = "@mukadam59"; // Replace with your actual Medium username
 
 interface BlogPost {
   title: string;
