@@ -437,9 +437,26 @@ export default function Home() {
               </p>
               
               <div className="flex gap-4 mb-12">
-                <SocialLink href="#" icon={<Github className="h-5 w-5" />} />
-                <SocialLink href="#" icon={<Linkedin className="h-5 w-5" />} />
-                <SocialLink href="#" icon={<Mail className="h-5 w-5" />} />
+                <SocialLink
+                  href="https://github.com/hsm59"
+                  iconUrl="https://cdn.simpleicons.org/github/white"
+                />
+                <SocialLink
+                  href="https://linkedin.com/in/husain-mukadam"
+                  icon={<Linkedin className="h-5 w-5" />}
+                />
+                <SocialLink
+                  href="https://stackoverflow.com/users/6696207/husain-mukadam"
+                  iconUrl="https://cdn.simpleicons.org/stackoverflow/white"
+                />
+                <SocialLink
+                  href="https://twitter.com/hsm59"
+                  iconUrl="https://cdn.simpleicons.org/x/white"
+                />
+                <SocialLink
+                  href="mailto:husain.mukadam@outlook.com"
+                  iconUrl="https://cdn.simpleicons.org/gmail/white"
+                />
               </div>
 
               <div className="space-y-2 text-sm text-muted-foreground">
@@ -744,13 +761,23 @@ function TalkCard({ image, title, event, date, description, slidesUrl }: { image
   );
 }
 
-function SocialLink({ href, icon }: { href: string, icon: React.ReactNode }) {
+function SocialLink({ href, icon, iconUrl }: { href: string, icon?: React.ReactNode, iconUrl?: string }) {
   return (
-    <a 
+    <a
       href={href}
-      className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="h-10 w-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300 group"
     >
-      {icon}
+      {iconUrl ? (
+        <img
+          src={iconUrl}
+          alt="Social Icon"
+          className="h-5 w-5 brightness-0 invert opacity-60 group-hover:opacity-100 transition-opacity"
+        />
+      ) : (
+        icon
+      )}
     </a>
   );
 }
