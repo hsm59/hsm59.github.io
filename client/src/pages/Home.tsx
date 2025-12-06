@@ -442,19 +442,19 @@ export default function Home() {
                   iconUrl="https://cdn.simpleicons.org/github/white"
                 />
                 <SocialLink
-                  href="https://linkedin.com/in/husain-mukadam"
+                  href="https://linkedin.com/in/mukadam59"
                   icon={<Linkedin className="h-5 w-5" />}
                 />
                 <SocialLink
-                  href="https://stackoverflow.com/users/6696207/husain-mukadam"
+                  href="https://stackoverflow.com/users/1992823/hsm59"
                   iconUrl="https://cdn.simpleicons.org/stackoverflow/white"
                 />
                 <SocialLink
-                  href="https://twitter.com/hsm59"
+                  href="https://x.com/hsm59"
                   iconUrl="https://cdn.simpleicons.org/x/white"
                 />
                 <SocialLink
-                  href="mailto:husain.mukadam@outlook.com"
+                  href="mailto:info@husainmukadam.dev"
                   iconUrl="https://cdn.simpleicons.org/gmail/white"
                 />
               </div>
